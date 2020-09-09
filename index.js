@@ -42,19 +42,6 @@ for (let i = 0; i < fifaData.length; i++) {
   }
 }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(info1) {
@@ -69,19 +56,6 @@ function getFinals(info1) {
 
 console.log(getFinals("Final"));
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
 function getYears(info2) {
@@ -93,20 +67,6 @@ function getYears(info2) {
 }
 
 console.log(getYears(getFinals("Final")));
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
 
@@ -125,20 +85,6 @@ function getWinners(info3) {
 }
 
 console.log(getWinners(getFinals("Final")));
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -159,68 +105,27 @@ function getWinnersByYear(info4) {
 
 console.log(getWinnersByYear(getYears(getFinals("Final"))));
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
-  /* code here */
+function getAverageGoals(info5) {
+  let ht = [];
+  let at = [];
+  for (let i = 0; i < info5.length; i++) {
+    ht[i] = info5[i]["Home Team Goals"];
+    at[i] = info5[i]["Away Team Goals"];
+  }
+  const tcb = (total, element) => {
+    return (total += element);
+  };
+  let htt = ht.reduce(tcb, 0) / info5.length;
+  let httt = htt.toFixed(1);
+  let att = at.reduce(tcb, 0) / info5.length;
+  let attt = att.toFixed(1);
+  let averageGoal = `The home teams had an average of ${httt} goals and the away teams had an average of ${attt} goals in all Fifa Cup finals.`;
+  return averageGoal;
 }
 
-getAverageGoals();
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+console.log(getAverageGoals(getFinals("Final")));
 
 /// STRETCH 🥅 //
 
