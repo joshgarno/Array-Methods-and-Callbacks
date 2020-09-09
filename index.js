@@ -181,6 +181,16 @@ console.log(getFinals("Final"));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
+function getYears(num1) {
+  let years = [];
+  for (let i = 0; i < num1.length; i++) {
+    years.push(num1[i].Year);
+  }
+  return years;
+}
+
+console.log(getYears(getFinals("Final")));
+
 //
 //
 //
