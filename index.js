@@ -4,47 +4,6 @@ console.log(fifaData[0]);
 console.log("its working");
 // ⚽️ M  V P ⚽️ //
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
 
 (a) Home Team name for 2014 world cup final
@@ -95,41 +54,13 @@ for (let i = 0; i < fifaData.length; i++) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(info1) {
   let finalsData = [];
   for (let i = 0; i < fifaData.length; i++) {
-    if (fifaData[i].Stage === "Final") {
+    if (fifaData[i].Stage === info1) {
       finalsData.push(fifaData[i]);
     }
   }
@@ -138,34 +69,6 @@ function getFinals(info1) {
 
 console.log(getFinals("Final"));
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -191,33 +94,6 @@ function getYears(info2) {
 
 console.log(getYears(getFinals("Final")));
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -263,33 +139,6 @@ console.log(getWinners(getFinals("Final")));
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
@@ -298,37 +147,18 @@ Parameters:
  * callback function getYears
  */
 
-function getWinnersByYear(/* code here */) {}
+function getWinnersByYear(info4) {
+  let wby = [];
+  let win = getWinners(getFinals("Final"));
+  for (let i = 0; i < info4.length; i++) {
+    let c = `In ${info4[i]}, ${win[i]} won the world cup!`;
+    wby[i] = c;
+  }
+  return wby;
+}
 
-getWinnersByYear();
+console.log(getWinnersByYear(getYears(getFinals("Final"))));
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
